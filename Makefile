@@ -1,8 +1,6 @@
 dotfiles := asdfrc tmate.conf tmux.conf tmux-tmate.conf vimrc zlogin zlogout zpreztorc zprofile zshenv zshrc vim asdf prezto
-#directories := vim zprezto zsh-themes
 
 TARGETS := $(dotfiles:%=$(HOME)/.%)
-#$(directories:%=$(HOME)/.%)
 CWD := $(shell pwd)
 
 # Symlink pattern rule for both files and directories
@@ -19,8 +17,6 @@ $(HOME)/.%: %
 
 # Main targets
 install: $(TARGETS)
-	git submodule update --init --recursive
-	vim +BundleInstall +qall
 	bash osx
 
 uninstall:
@@ -28,10 +24,6 @@ uninstall:
 	@rm -rf $(TARGETS)
 
 update:
-	git pull
-	git submodule sync
-	git submodule update --init --recursive
-	vim +BundleInstall +qall
 	bash osx
 
 .PHONY: install uninstall update
