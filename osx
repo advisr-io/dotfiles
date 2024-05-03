@@ -1,23 +1,6 @@
-# Get latest changes
-git pull
+#!/bin/bash
 
-# Sync submodules
-
-git submodule sync
-
-# Install / Update git submodules
-
-git submodule update --init --recursive
-
-# Install / Update vim plugins
-
-vim +BundleInstall +qall
-
-# Configure asdf
-
-asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
-asdf plugin update --all
-asdf nodejs update-nodebuild
+[[ "$(uname)" != "Darwin" ]] && exit 0
 
 #
 # Set MacOS defaults

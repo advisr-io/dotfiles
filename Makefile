@@ -17,6 +17,7 @@ $(HOME)/.%: %
 
 # Main targets
 install: $(TARGETS)
+	bash config
 	bash osx
 
 uninstall:
@@ -24,6 +25,7 @@ uninstall:
 	@rm -rf $(TARGETS)
 
 update:
+	bash config
 	bash osx
 
 .PHONY: install uninstall update
